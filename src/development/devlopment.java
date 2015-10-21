@@ -1,132 +1,121 @@
 package development;
 import java.util.*;
 public class devlopment {
+public static void main(String[] args) {
+Scanner input = new Scanner(System.in);
+	
+//Introduce game and explain rules	
+	System.out.println("Hello. Lets play a math game!");
+	System.out.println("I'll ask you four questions and award you points for their difficulty.");
+	System.out.println("Answering all questions correctly will award you the most points.");
+	System.out.println("Answering questions correctly will cause the next question to be more difficult.");
+	System.out.println("Similarly, answering incorrectly will cause the next problem to be easier!");
+	System.out.println("Make sure your answers are in integer format.");
+	System.out.println("Also make sure you do not use a calculator, only mental math!\n");
+	
+	
+//Setup the point system and numbers generated
+int difficulty = 1000;
+int base = 10;
+int points = 0;
+int correct = 50;
+int wrong = 15;
 
-	public static void main(String[] args) {
-		Scanner input = new Scanner(System.in);
-		
-		//Set up the point system
-		
-		double Q1_correct  = 5;
-		double Q1_wrong    = 0;
-		double Q2_correct  = 10;
-		double Q2_wrong    = 2;
-		double Q3_correct  = 17;
-		double Q3_wrong    = 7;
-		double Q4_correct  = 26;
-		double Q4_wrong    = 15;
-		double point_total = 0;
-		
-		
-		
-		System.out.println("Lets play a math game!");
-		System.out.println("I'll ask you four questions and give points based off their difficulty.");
-		System.out.println("If you answer correctly you will receive more points.");
-		System.out.println("Make sure you do these without pencil or paper, only mental math!\n");
-		
-		System.out.println("Lets go ahead and start round 1.");
-		System.out.println("The first question is:\n");
-		
-		//Set up the variables for question 1
-		double Q1_num1       = 10 + Math.random()*89;
-		double Q1_num1_round = Math.round(Q1_num1);
-		double Q1_num2       = 10 + Math.random()*89;
-		double Q1_num2_round = Math.round(Q1_num2);
-		double Q1_num3       = Q1_num1_round + Q1_num2_round;
-		
-		//Ask question 1 and display results
-		System.out.print(Q1_num1_round + " + " + Q1_num2_round + " = ");
-		double Q1_answer = input.nextDouble();
-			
-			do {
-			
-			if (Q1_answer == Q1_num3) {
-				System.out.println("Correct! You have earned " + Q1_correct + " points.");
-				System.out.println("You now have " + (point_total = point_total + Q1_correct) + " points.");
-			}else{
-					System.out.println("Wrong... You receive " + Q1_wrong + " points this round.");
-					System.out.println("You now have " + (point_total = point_total + Q1_wrong) + " points.");
-				 }
-			} while (Q1_answer != Q1_num3);
-			
-		
-		
-		System.out.println("Lets move on to round 2.");
-		System.out.println("The second question is:\n");
-		
-		//Set up the variables for question 2
-		double Q2_num1       = 1000 + Math.random()*8999;
-		double Q2_num1_round = Math.round(Q2_num1);
-		double Q2_num2       = 100 + Math.random()*899;
-		double Q2_num2_round = Math.round(Q2_num2);
-		double Q2_num3       = Q2_num1_round - Q2_num2_round;
-		
-		//Ask question 2 and display results
-		System.out.print(Q2_num1_round + " - " + Q2_num2_round + " = ");
-		double Q2_answer = input.nextDouble();
-			if (Q2_answer == Q2_num3) {
-				System.out.println("Correct! You have earned " + Q2_correct  + " points.");
-				System.out.println("You now have " + (point_total = point_total + Q2_correct) + " points.");
-			}else{
-					System.out.println("Wrong... You receive " + Q2_wrong + " points this round");
-					System.out.println("You now have " + (point_total = point_total + Q2_wrong) + " points.");
-				 }
-					
-		
-		System.out.println("Lets move on to round 3.");
-		System.out.println("The third question is:\n");
-		
-		//Set up the variables for question 3
-		double Q3_num1       = 10 + Math.random()*39;
-		double Q3_num1_round = Math.round(Q3_num1);
-		double Q3_num2       = 10 + Math.random()*39;
-		double Q3_num2_round = Math.round(Q3_num2);
-		double Q3_num3       = 10 + Math.random()*89;
-		double Q3_num3_round = Math.round(Q3_num3);
-		double Q3_num4       = (Q3_num1_round + Q3_num2_round) * Q3_num3_round;
-		
-		//Ask question 3 and display results
-		System.out.print("(" + Q3_num1_round + " + " + Q3_num2_round + ") * " + Q3_num3_round + " = ");
-		double Q3_answer = input.nextDouble();
-			if (Q3_answer == Q3_num4) {
-				System.out.println("Correct! You have earned " + Q3_correct + " points.");
-				System.out.println("You now have " + (point_total = point_total + Q3_correct) + " points.");
-			}else{
-					System.out.println("Wrong... You receive " + Q3_wrong + " points this round");
-					System.out.println("You now have " + (point_total = point_total + Q3_wrong) + " points.");
-				 }
-		
-		
-		System.out.println("Lets move on to the final round.");
-		System.out.println("The fourth and final question is:\n");
-		
-		//Set up the variables for question 4
-		double Q4_num1       = 10 + Math.random()*39;
-		double Q4_num1_round = Math.round(Q4_num1);
-		double Q4_num2       = 10 + Math.random()*39;
-		double Q4_num2_round = Math.round(Q4_num2);
-		double Q4_num3       = Math.random()*9;
-		double Q4_num3_round = Math.round(Q4_num3);
-		double Q4_num4       = 10 + Math.random()*89;
-		double Q4_num4_round = Math.round(Q4_num4);
-		double Q4_num5       = (Q4_num1_round + Q4_num2_round) * (Q4_num3_round - Q4_num4_round);
-		
-		//Ask question 4 and display results
-		System.out.print("(" + Q4_num1_round + " + " + Q4_num2_round + ") * (" + Q4_num3_round + " - " 
-					+ Q4_num4_round + ") = ");
-		double Q4_answer = input.nextDouble();
-			if (Q4_answer == Q4_num5) {
-					System.out.println("Correct! You have earned " + Q4_correct + " points.");
-					System.out.println("You have earned a total of " + (point_total = point_total + Q4_correct)
-								+ " points.");
-			}else{
-					System.out.println("Wrong... You have earned " + Q4_wrong + " points.");
-					System.out.println("You have earned a total of " + (point_total = point_total + Q4_wrong)
-								+ " points.\n");
-				 }
-			
-			System.out.print("Thanks for playing! We should do it again sometime :)");
-		
-		
-	}
-}
+//Define integers for round 1
+int q1n1 = (int) (base + Math.random()*difficulty*8.9/100);
+int q1n2 = (int) (base + Math.random()*difficulty*8.9/100);
+int q1ans = q1n1 + q1n2;
+
+//Ask question, provide feedback to user, and award points
+	System.out.println("Lets begin round 1. Your first question is:");
+	System.out.print(q1n1 + " + " + q1n2 + " = ");
+int q1guess = input.nextInt();
+	if (q1guess == q1ans) {
+		System.out.println("Correct! You have earned " + correct + " points.");
+		System.out.println("You now have " + (points = points + correct) + " points.");
+			difficulty *= 10;
+			base *= 10;
+			correct += 10;
+	}else{
+		System.out.println("Wrong... You have earned " + wrong + " points.");
+		System.out.println("You now have " + (points = points + wrong) + " points.");
+			difficulty /= 10;
+			base /= 10;
+			correct -= 10;
+		 }
+
+//Define integers for round 2
+int q2n1 = (int) (base + Math.random()*difficulty*8.9/100);
+int q2n2 = (int) (base + Math.random()*difficulty*8.9)/100;
+int q2ans = q2n1 + q2n2;
+
+//Ask question, provide feedback to user, and award points
+	System.out.println("\nLets move on to round 2.");
+	System.out.println("Your next question is:");
+	System.out.print(q2n1 + " + " + q2n2 + " = ");
+int q2guess = input.nextInt();
+	if (q2guess == q2ans) {
+		System.out.println("Correct! You have earned " + correct + " points.");
+		System.out.println("You now have " + (points = points + correct) + " points.");
+			difficulty *= 10;
+			base *= 10;
+			correct += 10;
+	}else{
+		System.out.println("Wrong... You have earned " + wrong + " points.");
+		System.out.println("You now have " + (points = points + wrong) + " points.");
+			difficulty /= 10;
+			base /= 10;
+			correct -= 10;
+		 }
+		 
+//Define integers for round 3
+int q3n1 = (int) (base + Math.random()*difficulty*8.9/100);
+int q3n2 = (int) (base + Math.random()*difficulty*8.9/100);
+int q3ans = q3n1 + q3n2;
+
+//Ask question, provide feedback to user, and award points
+	System.out.println("\nHalfway done, keep it up!");
+	System.out.println("The third question is:");
+	System.out.print(q3n1 + " + " + q3n2 + " = ");
+int q3guess = input.nextInt();
+	if (q3guess == q3ans) {
+		System.out.println("Correct! You have earned " + correct + " points.");
+	System.out.println("You now have " + (points = points + correct) + " points.");
+	difficulty *= 10;
+	base *= 10;
+	correct += 10;
+	}else{
+		System.out.println("Wrong... You have earned " + wrong + " points.");
+		System.out.println("You now have " + (points = points + wrong) + " points.");
+			difficulty /= 10;
+			base /= 10;
+			correct -= 10;
+		 }
+	
+//Define integers for round 4	
+int q4n1 = (int) (base + Math.random()*difficulty*8.9/100);
+int q4n2 = (int) (base + Math.random()*difficulty*8.9/100);
+int q4ans = q4n1 + q4n2;
+
+//Ask question, provide feedback to user, and award points
+	System.out.println("\nOne question left, lets finish strong!");
+	System.out.println("The final question is:");
+	System.out.print(q4n1 + " + " + q4n2 + " = ");
+int q4guess = input.nextInt();
+	if (q4guess == q4ans) {
+		System.out.println("Correct! You have earned " + correct + " points.");
+		System.out.println("Your final score is  " + (points = points + correct) + " points.");
+			difficulty *= 10;
+			base *= 10;
+			correct += 10;
+	}else{
+		System.out.println("Wrong... You have earned " + wrong + " points.");
+		System.out.println("Your final score is " + (points = points + wrong) + " points.");
+			difficulty /= 10;
+			base /= 10;
+			correct -= 10;
+		 }	
+		 
+//End the game
+	System.out.println("\nCongratulations and thanks for playing! We should do it again sometime :)");
+}}
